@@ -3,10 +3,8 @@
 
 
 using System.Collections.Generic;
-using System.Security.Claims;
 using System.Linq;
 using System;
-using IdentityModel;
 using System.Collections;
 using System.Diagnostics;
 
@@ -134,7 +132,7 @@ namespace IdentityServer4.Models
         public string FrontChannelLogoutUri { get; set; }
 
         /// <summary>
-        /// Specifies is the user's session id should be sent to the FrontChannelLogoutUri. Defaults to <c>true</c>.
+        /// Specifies if the user's session id should be sent to the FrontChannelLogoutUri. Defaults to <c>true</c>.
         /// </summary>
         public bool FrontChannelLogoutSessionRequired { get; set; } = true;
 
@@ -144,7 +142,7 @@ namespace IdentityServer4.Models
         public string BackChannelLogoutUri { get; set; }
 
         /// <summary>
-        /// Specifies is the user's session id should be sent to the BackChannelLogoutUri. Defaults to <c>true</c>.
+        /// Specifies if the user's session id should be sent to the BackChannelLogoutUri. Defaults to <c>true</c>.
         /// </summary>
         public bool BackChannelLogoutSessionRequired { get; set; } = true;
 
@@ -159,7 +157,7 @@ namespace IdentityServer4.Models
         public ICollection<string> AllowedScopes { get; set; } = new HashSet<string>();
 
         /// <summary>
-        /// When requesting both an id token and access token, should the user claims always be added to the id token instead of requring the client to use the userinfo endpoint.
+        /// When requesting both an id token and access token, should the user claims always be added to the id token instead of requiring the client to use the userinfo endpoint.
         /// Defaults to <c>false</c>.
         /// </summary>
         public bool AlwaysIncludeUserClaimsInIdToken { get; set; } = false;
@@ -239,12 +237,12 @@ namespace IdentityServer4.Models
         public ICollection<string> IdentityProviderRestrictions { get; set; } = new HashSet<string>();
 
         /// <summary>
-        /// Gets or sets a value indicating whether JWT access tokens should include an identifier. Defaults to <c>false</c>.
+        /// Gets or sets a value indicating whether JWT access tokens should include an identifier. Defaults to <c>true</c>.
         /// </summary>
         /// <value>
         /// <c>true</c> to add an id; otherwise, <c>false</c>.
         /// </value>
-        public bool IncludeJwtId { get; set; } = false;
+        public bool IncludeJwtId { get; set; } = true;
 
         /// <summary>
         /// Allows settings claims for the client (will be included in the access token).

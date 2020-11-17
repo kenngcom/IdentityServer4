@@ -3,9 +3,9 @@
 
 using System;
 using System.Linq;
-using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using IdentityServer4.Configuration;
+using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
@@ -45,7 +45,7 @@ namespace IdentityServer4.Validation
         {
             _logger.LogDebug("Start parsing for client id in post body");
 
-            if (!context.Request.HasFormContentType)
+            if (!context.Request.HasApplicationFormContentType())
             {
                 _logger.LogDebug("Content type is not a form");
                 return null;

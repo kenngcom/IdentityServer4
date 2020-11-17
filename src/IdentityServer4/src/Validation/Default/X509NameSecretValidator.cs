@@ -6,7 +6,6 @@ using System.Threading.Tasks;
 using IdentityServer4.Extensions;
 using IdentityServer4.Models;
 using Microsoft.Extensions.Logging;
-using Newtonsoft.Json;
 using static IdentityServer4.IdentityServerConstants;
 
 namespace IdentityServer4.Validation
@@ -38,8 +37,7 @@ namespace IdentityServer4.Validation
                 return fail;
             }
 
-            var cert = parsedSecret.Credential as X509Certificate2;
-            if (cert == null)
+            if (!(parsedSecret.Credential is X509Certificate2 cert))
             {
                 throw new InvalidOperationException("Credential is not a x509 certificate.");
             }
